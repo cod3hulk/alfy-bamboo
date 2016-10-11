@@ -38,7 +38,7 @@ alfy.fetch(`${host}:${port}/rest/api/latest/plan`, options).then(data => {
   const plans = fuzzy.filter(alfy.input, data.plans.plan, fuzzy_options);
   const items= plans.map(x => ({
     title: x.original.name,
-    subtitle: x.original.shortname
+    subtitle: x.original.shortName,
     arg: `${host}:${port}/browse/${x.original.key}`
   }));
 
