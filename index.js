@@ -19,7 +19,8 @@ const auth = new Buffer(`${user}:${password}`).toString('base64')
 const options = {
   method: 'GET',
   query: {
-    query: alfy.input
+    'query': alfy.input,
+    'max-results': 1000
   },
   headers: {
     'Authorization': 'Basic ' + auth
@@ -33,12 +34,13 @@ const fuzzy_options = {
   }
 }
 
-alfy.fetch(`${host}:${port}/rest/api/latest/plan?max-result=1000`, options).then(data => {
-  const items = fuzzy.filter(alfy.input, data.plans.plan, fuzzy_options)
-    .map(x => ({
-      title: x.original.name,
-      arg: `${host}:${port}/browse/${x.original.key}`
-    }));
+
+alfy.fetch(`${host}:${port}/rest/api/latest/plan`, options).then(data => {
+  const plans = fuzzy.filter(alfy.input, data.plans.plan, fuzzy_options);
+  const items= plans.map(x => ({
+    title: x.original.name,
+    arg: `${host}:${port}/browse/${x.original.key}`
+  }));
 
   alfy.output(items);
 });
