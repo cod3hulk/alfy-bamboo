@@ -1,6 +1,6 @@
 {
   "name": "alfy-bamboo",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Alfred workflow for search build plans in bamboo server",
   "license": "MIT",
   "repository": "cod3hulk/alfy-bamboo",
