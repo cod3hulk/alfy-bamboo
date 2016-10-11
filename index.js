@@ -2,14 +2,18 @@
 const alfy = require('alfy');
 const alfredNotifier = require('alfred-notifier');
 const fuzzy = require('fuzzy');
+const fs = require('fs');
 
 alfredNotifier();
-
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
-const host = alfy.config.get('bamboo.host') || 'localhost'
-const port = alfy.config.get('bamboo.port') || 8080;
-const user = alfy.config.get('bamboo.user') || 'admin';
-const password = alfy.config.get('bamboo.password') || 'admin';
+
+const home = process.env.HOME || process.env.USERPROFILE;
+const configFile = process.argv[3] || `${home}/.alfy-bamboo.json`
+const config = JSON.parse(fs.readFileSync(configFile, 'utf8'));
+const host = config.host || 'localhost'
+const port = config.port || 8080;
+const user = config.user || 'admin';
+const password = config.password || 'admin';
 const auth = new Buffer(`${user}:${password}`).toString('base64')
 
 const options = {
