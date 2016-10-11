@@ -23,7 +23,7 @@ const options = {
 };
 
 alfy.fetch(`${host}:${port}/rest/api/latest/plan?max-result=1000`, options).then(data => {
-  const items = data.plans.plan
+  const items = alfy.inputMatches(data.plans.plan, 'name')
     .map(x => ({
       title: x.name,
       arg: `${host}:${port}/browse/${x.key}`
