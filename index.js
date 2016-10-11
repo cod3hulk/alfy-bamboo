@@ -1,6 +1,7 @@
 'use strict';
 const alfy = require('alfy');
 const alfredNotifier = require('alfred-notifier');
+const fuzzy = require('fuzzy');
 
 alfredNotifier();
 
@@ -22,11 +23,17 @@ const options = {
   maxAge: 300000
 };
 
+const fuzzy_options = {
+  extract: function(e) {
+    return e.name;
+  }
+}
+
 alfy.fetch(`${host}:${port}/rest/api/latest/plan?max-result=1000`, options).then(data => {
-  const items = alfy.inputMatches(data.plans.plan, 'name')
+  const items = fuzzy.filter(alfy.input, data.plans.plan, fuzzy_options)
     .map(x => ({
-      title: x.name,
-      arg: `${host}:${port}/browse/${x.key}`
+      title: x.original.name,
+      arg: `${host}:${port}/browse/${x.original.key}`
     }));
 
   alfy.output(items);
