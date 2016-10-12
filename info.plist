@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>name</key>
-	<string>alfy-bamboo</string>
 	<key>bundleid</key>
 	<string>com.cod3hulk.alfy-bamboo</string>
 	<key>category</key>
@@ -24,8 +22,14 @@
 			</dict>
 		</array>
 	</dict>
+	<key>createdby</key>
+	<string>cod3hulk</string>
+	<key>description</key>
+	<string>Alfred workflow for bamboo</string>
 	<key>disabled</key>
 	<false/>
+	<key>name</key>
+	<string>bamfred</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -77,7 +81,7 @@
 				<key>subtext</key>
 				<string></string>
 				<key>title</key>
-				<string>alfy-bamboo</string>
+				<string>bamboo</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -95,13 +99,6 @@
 	<string></string>
 	<key>uidata</key>
 	<dict>
-		<key>EFD7A237-29AF-480F-869A-D5E2B8E2FF35</key>
-		<dict>
-			<key>xpos</key>
-			<integer>150</integer>
-			<key>ypos</key>
-			<integer>10</integer>
-		</dict>
 		<key>B8F50D83-0FFD-4EDF-82C5-AC6B84DAF58C</key>
 		<dict>
 			<key>xpos</key>
@@ -109,6 +106,15 @@
 			<key>ypos</key>
 			<integer>10</integer>
 		</dict>
+		<key>EFD7A237-29AF-480F-869A-D5E2B8E2FF35</key>
+		<dict>
+			<key>xpos</key>
+			<integer>390</integer>
+			<key>ypos</key>
+			<integer>10</integer>
+		</dict>
 	</dict>
+	<key>webaddress</key>
+	<string></string>
 </dict>
 </plist>
