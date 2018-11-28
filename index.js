@@ -8,7 +8,7 @@ const Promise = require('bluebird');
 const url = require('url');
 
 alfredNotifier();
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "1";
 
 const home = process.env.HOME || process.env.USERPROFILE;
 const configFile = process.argv[3] || `${home}/.alfy-bamboo.json`
